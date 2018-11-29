@@ -13,42 +13,55 @@ export const BlogPostTemplate = ({
   tags,
   title,
   image,
+  date,
   helmet,
 }) => {
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            {tags && tags.length ? (
-              <div class="field is-grouped is-grouped-multiline">
-                <div class="control">
-                  <div style={{ marginTop: `4rem` }}>
-                    <div className="tags are-large has-addons">
-                     <span className="tag is-dark is-large">Tags</span>
+    <article>
+      <section className="section hero is-fullheight" style={{backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,}}>
+        {helmet || ''}
+        <div class="hero-body">
+          <div className="container content is-fluid blur">
+            <div className="columns is-0-mobile">
+              <div className="column is-8 is-offset-1">
+                {tags && tags.length ? (
+                  <div class="field is-grouped is-grouped-multiline">
+                    <div className="tags are-medium">
+                    <span className="tag is-dark is-medium">Tags</span>
                       {tags.map(tag => (
-                        <span className="tag is-large" key={tag + `tag`}>
+                        <span className="tag is-medium" key={tag + `tag`}>
                           <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                         </span>
                       ))}
                     </div>
                   </div>
-                </div>
+                ) : null}
               </div>
-            ) : null}
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <div className="full-width-image-container margin-top-0" style={{backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,}}></div>
+              <div className="column is-2">
+                <p>{date}</p>
+              </div>
+            </div>
+            <div className="columns">
+              <div className="column is-10 is-offset-1">
+                <h1 className="title is-size-2 is-spaced">
+                  {title}
+                </h1>
+                <p className="subtitle is-size-4">{description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <div className="content">
             <PostContent content={content} />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </article>
   )
 }
 
@@ -57,6 +70,7 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  date: PropTypes.date,
   title: PropTypes.string,
   helmet: PropTypes.object,
 }
@@ -81,6 +95,7 @@ const BlogPost = ({ data }) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        date={post.frontmatter.date}
       />
     </Layout>
   )
