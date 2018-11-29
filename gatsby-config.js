@@ -58,7 +58,17 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
+    'gatsby-plugin-catch-links',
     'gatsby-plugin-purgecss', // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
+    {
+      resolve: 'gatsby-plugin-html2amp',
+      options: {
+        files: ['amp/**.html'],
+        publicPath: 'public',
+        gaConfigPath: 'gaConfig.json',
+        dist: 'public/amp'
+      }
+    },
   ],
 }

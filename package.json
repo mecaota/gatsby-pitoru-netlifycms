@@ -10,6 +10,8 @@
     "bulma": "^0.7.0",
     "gatsby": "^2.0.0",
     "gatsby-image": "^2.0.10",
+    "gatsby-plugin-catch-links": "^2.0.8",
+    "gatsby-plugin-html2amp": "^0.2.1",
     "gatsby-plugin-netlify": "^2.0.0",
     "gatsby-plugin-netlify-cms": "^3.0.0",
     "gatsby-plugin-purgecss": "^2.4.0",
