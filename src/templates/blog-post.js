@@ -12,6 +12,7 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
+  image,
   helmet,
 }) => {
   const PostContent = contentComponent || Content
@@ -22,23 +23,28 @@ export const BlogPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
+            {tags && tags.length ? (
+              <div class="field is-grouped is-grouped-multiline">
+                <div class="control">
+                  <div style={{ marginTop: `4rem` }}>
+                    <div className="tags are-large has-addons">
+                     <span className="tag is-dark is-large">Tags</span>
+                      {tags.map(tag => (
+                        <span className="tag is-large" key={tag + `tag`}>
+                          <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
             <p>{description}</p>
+            <div className="full-width-image-container margin-top-0" style={{backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,}}></div>
             <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
           </div>
         </div>
       </div>
@@ -50,6 +56,7 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   helmet: PropTypes.object,
 }
@@ -63,6 +70,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        image={post.frontmatter.image.childImageSharp.fluid.src}
         helmet={
           <Helmet
             titleTemplate="%s | Blog"
@@ -96,6 +104,13 @@ export const pageQuery = graphql`
         title
         description
         tags
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
