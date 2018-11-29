@@ -1,21 +1,27 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // base color
-$primary-color: #1b5e20
-$light-color: #4c8c4a
-$dark-color: #003300
-$primary-text: #000000
+$primary: #1b5e20
+$primary-invert: $white
+$dark: #003300
+$dark-invert: $white
+$light: #4c8c4a
+$light-invert: $black
 
-$primary: $primary-color
-$primary-invert: $light-color
-$body-color: $primary-text
+$text: $black
+$text-invert: $white
+$text-strong: #002200
+$link: $primary
+$link-invert: $primary-invert
+$link-visited: $light
 
 // custom color 
-$navbar-background-color: $dark-color
-$tabs-link-color: $white
-$tabs-link-active-color: $white
-$tabs-boxed-link-active-background-color: $primary-color
-$tabs-boxed-link-hover-background-color: $light-color
+$navbar-background-color: $dark
+$tabs-link-color: $dark-invert
+$tabs-link-active-color: $primary-invert
+$tabs-boxed-link-active-background-color: $primary
+$tabs-boxed-link-hover-background-color: $light
+$tabs-border-bottom-color: $dark
 
 .content .taglist
   list-style: none
