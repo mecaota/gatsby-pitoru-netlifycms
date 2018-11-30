@@ -11,7 +11,7 @@ export default class BlogPage extends React.Component {
 
     return (
       <Layout>
-        <section className="hero is-primary">
+        <section className="hero is-primary is-bold">
           <div class="hero-body">
             <div class="container">
               <h1 className="title is-2 nav-margin">投稿一覧</h1>
@@ -62,10 +62,10 @@ export default class BlogPage extends React.Component {
                       </div>
                       <footer class="card-footer">
                         <div className="card-footer-item">
-                          {post.frontmatter.date}
+                          投稿日: {post.frontmatter.date}
                         </div>
                         <Link className="card-footer-item" to={post.fields.slug}>
-                          Keep Reading →
+                          続きを見る →
                         </Link>
                       </footer>
                     </div>
