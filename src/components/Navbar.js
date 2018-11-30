@@ -25,12 +25,6 @@ const Navbar = () => (
           <li className=""><Link className="navbar-item" to="/blog" title="Blog">
             Blog
           </Link></li>
-          <li className=""><Link className="navbar-item" to="/contact" title="Contact">
-            Contact
-          </Link></li>
-          <li className=""><Link className="navbar-item" to="/contact/examples" title="Form Example">
-            Form Examples
-          </Link></li>
         </ul>
       </div>
     </div>
