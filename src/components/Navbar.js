@@ -13,22 +13,22 @@ const Navbar = () => (
       </div>
       <div className="tabs is-boxed is-medium">
         <ul>
-          <li className="is-active"><Link to="/" className="navbar-item" title="Home">
+          <li className=""><Link to="/" className="navbar-item" title="Home">
             Home
           </Link></li>
-          <li><Link className="navbar-item" to="/about" title="About">
+          <li className=""><Link className="navbar-item" to="/about" title="About">
             About
           </Link></li>
-          <li><Link className="navbar-item" to="/products" title="Products">
+          <li className=""><Link className="navbar-item" to="/products" title="Products">
             Products
           </Link></li>
-          <li><Link className="navbar-item" to="/blog" title="Blog">
+          <li className=""><Link className="navbar-item" to="/blog" title="Blog">
             Blog
           </Link></li>
-          <li><Link className="navbar-item" to="/contact" title="Contact">
+          <li className=""><Link className="navbar-item" to="/contact" title="Contact">
             Contact
           </Link></li>
-          <li><Link className="navbar-item" to="/contact/examples" title="Form Example">
+          <li className=""><Link className="navbar-item" to="/contact/examples" title="Form Example">
             Form Examples
           </Link></li>
         </ul>
