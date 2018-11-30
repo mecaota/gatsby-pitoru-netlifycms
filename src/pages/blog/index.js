@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { kebabCase } from 'lodash'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 
@@ -19,7 +20,7 @@ export default class BlogPage extends React.Component {
         </section>
         <section className="section">
           <div className="container content">
-            <div class="columns is-multiline">
+            <div class="columns is-multiline is-primary">
               {posts
                 .map(({ node: post }) => (
                   <div className="column is-half">
@@ -34,10 +35,30 @@ export default class BlogPage extends React.Component {
                           </Link>
                         </p>
                       </header>
+                      <div className="card-image">
+                      <figure class="image is-2by1">
+                        <Link to={post.fields.slug}>
+                          <img src={!!post.frontmatter.image.childImageSharp ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image} alt="記事イメージ画像" />
+                        </Link>
+                      </figure>
+                        
+                      </div>
                       <div className="card-content">
                         <div className="content">
                           {post.excerpt}
                         </div>
+                        {post.frontmatter.tags && post.frontmatter.tags.length ? (
+                          <div class="field is-grouped is-grouped-multiline">
+                            <div className="tags">
+                              <span className="tag is-dark is-medium">Tags</span>
+                                {post.frontmatter.tags.map(tag => (
+                                  <span className="tag is-medium" key={tag + `tag`}>
+                                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          ) : null}
                       </div>
                       <footer class="card-footer">
                         <div className="card-footer-item">
@@ -82,7 +103,15 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY/MM/DD")
+            tags
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
