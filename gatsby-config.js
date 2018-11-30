@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'pitoruの多趣味日記++',
     description: 'ここは、pitoruが趣味の何かをいろいろする為のページです。（アクセス保証は）ないです。',
+    siteUrl: "https://pito.run",
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -49,6 +50,7 @@ module.exports = {
               maxWidth: 2048,
             },
           },
+          'gatsby-remark-social-cards',
         ],
       },
     },

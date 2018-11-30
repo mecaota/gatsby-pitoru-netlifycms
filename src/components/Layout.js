@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Navbar from '../components/Navbar'
 import './all.sass'
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ slug, children }) => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -13,6 +13,7 @@ const TemplateWrapper = ({ children }) => (
             siteMetadata {
               title,
               description,
+              siteUrl,
             }
           }
         }
@@ -23,6 +24,11 @@ const TemplateWrapper = ({ children }) => (
           <html lang="ja" />
           <title>{data.site.siteMetadata.title}</title>
           <meta name="description" content={data.site.siteMetadata.description} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:image"
+            content={`${data.site.siteMetadata.siteUrl}${slug}twitter-card.jpg`}
+          />
         </Helmet>
         <Navbar />
         <div>{children}</div>
