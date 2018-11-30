@@ -10,35 +10,47 @@ export default class BlogPage extends React.Component {
 
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+        <section className="hero is-primary">
+          <div class="hero-body">
+            <div class="container">
+              <h1 className="title is-2 nav-margin">投稿一覧</h1>
             </div>
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #333', padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
-                </div>
-              ))}
+          </div>
+        </section>
+        <section className="section">
+          <div className="container content">
+            <div class="columns is-multiline">
+              {posts
+                .map(({ node: post }) => (
+                  <div className="column is-half">
+                    <div
+                      className="card"
+                      key={post.id}
+                    >
+                      <header className="card-header">
+                        <p>
+                          <Link className="card-header-title" to={post.fields.slug}>
+                            {post.frontmatter.title}
+                          </Link>
+                        </p>
+                      </header>
+                      <div className="card-content">
+                        <div className="content">
+                          {post.excerpt}
+                        </div>
+                      </div>
+                      <footer class="card-footer">
+                        <div className="card-footer-item">
+                          {post.frontmatter.date}
+                        </div>
+                        <Link className="card-footer-item" to={post.fields.slug}>
+                          Keep Reading →
+                        </Link>
+                      </footer>
+                    </div>
+                  </div>
+                ))}
+            </div>
           </div>
         </section>
       </Layout>
