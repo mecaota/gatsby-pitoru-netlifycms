@@ -22,7 +22,13 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: "HeroImage",
+         name: "image",
+         widget: "image",
+         default: "src/img/logo.png",
+         media_library:
+          {config: {multiple: false}}
+        }
 
   - name: "pages"
     label: "Pages"
