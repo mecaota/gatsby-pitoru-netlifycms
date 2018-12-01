@@ -8,7 +8,7 @@ description: >-
 tags:
   - flavor
   - tasting
-image: /img/coffee-gear.png
+image: /img/products-grid3.jpg
 ---
 
 ![flavor wheel](/img/flavor_wheel.jpg)
