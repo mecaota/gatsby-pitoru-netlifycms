@@ -40,7 +40,7 @@ export const BlogPostTemplate = ({
                 ) : null}
               </div>
               <div className="column is-2">
-                <p>{date}</p>
+                <p>投稿日: {date}</p>
               </div>
             </div>
             <div className="columns">
@@ -115,7 +115,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY/MM/DD")
         title
         description
         tags
