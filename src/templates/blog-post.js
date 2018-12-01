@@ -20,7 +20,7 @@ export const BlogPostTemplate = ({
 
   return (
     <article>
-      <section className="section hero is-fullheight" style={{backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,}}>
+      <section className="section hero is-fullheight is-fixed" style={{backgroundImage: `url(${image})`,}}>
         {helmet || ''}
         <div class="hero-body">
           <div className="container content is-fluid blur">
@@ -69,7 +69,7 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image: PropTypes.string,
   date: PropTypes.date,
   title: PropTypes.string,
   helmet: PropTypes.object,
@@ -84,10 +84,10 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        image={post.frontmatter.image.childImageSharp.fluid.src}
+        image={!!post.frontmatter.image.childImageSharp ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image}
         helmet={
           <Helmet
-            titleTemplate="%s | Blog"
+            titleTemplate="%s | pitoruの多趣味日記"
           >
             <title>{`${post.frontmatter.title}`}</title>
             <meta name="description" content={`${post.frontmatter.description}`} />
