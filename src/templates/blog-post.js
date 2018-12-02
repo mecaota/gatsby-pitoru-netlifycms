@@ -22,11 +22,10 @@ export const BlogPostTemplate = ({
     <article>
       <section className="section hero is-fullheight is-fixed" style={{backgroundImage: `url(${image})`,}}>
         {helmet || ''}
-        <div class="float-title">
-          <div className="container blur">
-            <div className="columns is-multiline">
-              <div className="column is-full"></div>
-              <div className="column is-10 is-offset-1">
+        <div class="hero-body">
+          <div className="container content is-fluid blur">
+            <div className="columns is-0-mobile">
+              <div className="column is-8 is-offset-1">
                 {tags && tags.length ? (
                   <div class="field is-grouped is-grouped-multiline">
                     <div className="tags are-medium">
@@ -40,14 +39,18 @@ export const BlogPostTemplate = ({
                   </div>
                 ) : null}
               </div>
-              <div className="column is-10 is-offset-1">
+              <div className="column is-2">
                 <p>投稿日: {date}</p>
               </div>
+            </div>
+            <div className="columns">
               <div className="column is-10 is-offset-1">
-                <h1 className="title is-spaced has-text-centered">{title}</h1>
-                <h2 className="subtitle is-5 has-text-centered">{description}</h2></div>
+                <h1 className="title is-size-2 is-spaced">
+                  {title}
+                </h1>
+                <p className="subtitle is-size-4">{description}</p>
               </div>
-              <div className="column is-full"></div>
+            </div>
           </div>
         </div>
       </section>
