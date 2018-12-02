@@ -38,7 +38,7 @@ export default class BlogPage extends React.Component {
                       <div className="card-image">
                       <figure class="image is-2by1">
                         <Link to={post.fields.slug}>
-                          <img src={!!post.frontmatter.image.childImageSharp ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image} alt="記事イメージ画像" />
+                          <img src={post.frontmatter.image.childImageSharp.fixed.src} alt="記事イメージ画像" />
                         </Link>
                       </figure>
                         
@@ -107,8 +107,8 @@ export const pageQuery = graphql`
             tags
             image {
               childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 600, height:300) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
