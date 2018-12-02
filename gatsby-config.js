@@ -50,7 +50,6 @@ module.exports = {
               maxWidth: 2048,
             },
           },
-          'gatsby-remark-social-cards',
         ],
       },
     },
