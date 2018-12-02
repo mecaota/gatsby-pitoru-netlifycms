@@ -91,8 +91,15 @@ const BlogPost = ({ data }) => {
           <Helmet
             titleTemplate="%s | pitoruの多趣味日記"
           >
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta name="description" content={`${post.frontmatter.description}`} />
+            <title>{post.frontmatter.title}</title>
+            <meta name="description" content={post.frontmatter.description} />
+            <meta property="og:title" content={post.frontmatter.title}/>
+            <meta property="og:description" content={post.frontmatter.description} />
+            <meta property="og:type" content="artcle" />
+            <meta property="og:image" content={post.frontmatter.image.childImageSharp.fixed.src} />
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@mecaota" />
+            <meta name="twitter:image" content={post.frontmatter.image.childImageSharp.fixed.src}></meta>
           </Helmet>
         }
         tags={post.frontmatter.tags}
@@ -123,8 +130,11 @@ export const pageQuery = graphql`
         tags
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 2048) {
               ...GatsbyImageSharpFluid
+            }
+            fixed(width: 600) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
