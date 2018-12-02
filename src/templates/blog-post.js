@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
+import Img from "gatsby-image"
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
@@ -20,19 +21,19 @@ export const BlogPostTemplate = ({
 
   return (
     <article>
-      <section className="section hero is-fullheight is-fixed" style={{backgroundImage: `url(${image})`,}}>
+      <section className="hero is-primary is-bold is-fixed">
         {helmet || ''}
-        <div class="float-title">
-          <div className="container blur">
+        <div className="hero-body">
+          <div className="container has-text-centered">
             <div className="columns is-multiline">
               <div className="column is-full"></div>
               <div className="column is-10 is-offset-1">
                 {tags && tags.length ? (
-                  <div class="field is-grouped is-grouped-multiline">
-                    <div className="tags are-medium">
-                    <span className="tag is-dark is-medium">Tags</span>
+                  <div class="field is-grouped is-grouped-multiline nav-margin">
+                    <div className="tags are-small">
+                    <span className="tag is-dark is-small">Tags</span>
                       {tags.map(tag => (
-                        <span className="tag is-medium" key={tag + `tag`}>
+                        <span className="tag is-small" key={tag + `tag`}>
                           <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                         </span>
                       ))}
@@ -41,18 +42,22 @@ export const BlogPostTemplate = ({
                 ) : null}
               </div>
               <div className="column is-10 is-offset-1">
-                <p>投稿日: {date}</p>
+                <h1 className="title is-4 is-spaced">{title}</h1>
+                <h2 className="subtitle is-6">{description}</h2></div>
               </div>
               <div className="column is-10 is-offset-1">
-                <h1 className="title is-spaced has-text-centered">{title}</h1>
-                <h2 className="subtitle is-5 has-text-centered">{description}</h2></div>
+                <p>投稿日: {date}</p>
               </div>
               <div className="column is-full"></div>
+              <Img fluid={image.childImageSharp.fluid} alt="記事のイメージ画像"/>
           </div>
         </div>
       </section>
       <section className="section">
         <div className="container">
+          <div className="image">
+            
+          </div>
           <div className="content">
             <PostContent content={content} />
           </div>
@@ -66,7 +71,7 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.oneOfType(PropTypes.object),
   date: PropTypes.date,
   title: PropTypes.string,
   helmet: PropTypes.object,
@@ -81,7 +86,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        image={!!post.frontmatter.image.childImageSharp ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image}
+        image={post.frontmatter.image}
         helmet={
           <Helmet
             titleTemplate="%s | pitoruの多趣味日記"

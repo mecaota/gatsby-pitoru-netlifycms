@@ -11,10 +11,10 @@ export default class BlogPage extends React.Component {
 
     return (
       <Layout>
-        <section className="hero is-primary is-bold">
+        <section className="hero is-primary is-bold is-fixed">
           <div class="hero-body">
-            <div class="container">
-              <h1 className="title is-2 nav-margin">投稿一覧</h1>
+            <div class="container has-text-centered">
+              <h1 className="title is-4 is-spaced nav-margin">投稿一覧</h1>
             </div>
           </div>
         </section>
