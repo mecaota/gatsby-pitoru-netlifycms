@@ -12,15 +12,15 @@ export default class BlogPage extends React.Component {
     return (
       <Layout>
         <section className="hero is-primary is-bold is-fixed">
-          <div class="hero-body">
-            <div class="container has-text-centered">
+          <div className="hero-body">
+            <div className="container has-text-centered">
               <h1 className="title is-4 is-spaced nav-margin">投稿一覧</h1>
             </div>
           </div>
         </section>
         <section className="section">
           <div className="container content">
-            <div class="columns is-multiline is-primary">
+            <div className="columns is-multiline is-primary">
               {posts
                 .map(({ node: post }) => (
                   <div className="column is-half">
@@ -36,7 +36,7 @@ export default class BlogPage extends React.Component {
                         </p>
                       </header>
                       <div className="card-image">
-                      <figure class="image is-2by1">
+                      <figure className="image is-2by1">
                         <Link to={post.fields.slug}>
                           <img src={post.frontmatter.image.childImageSharp.fixed.src} alt="記事イメージ画像" />
                         </Link>
@@ -48,7 +48,7 @@ export default class BlogPage extends React.Component {
                           {post.excerpt}
                         </div>
                         {post.frontmatter.tags && post.frontmatter.tags.length ? (
-                          <div class="field is-grouped is-grouped-multiline">
+                          <div className="field is-grouped is-grouped-multiline">
                             <div className="tags">
                               <span className="tag is-dark is-medium">Tags</span>
                                 {post.frontmatter.tags.map(tag => (
@@ -60,7 +60,7 @@ export default class BlogPage extends React.Component {
                             </div>
                           ) : null}
                       </div>
-                      <footer class="card-footer">
+                      <footer className="card-footer">
                         <div className="card-footer-item">
                           投稿日: {post.frontmatter.date}
                         </div>
