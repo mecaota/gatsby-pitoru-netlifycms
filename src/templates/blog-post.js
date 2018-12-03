@@ -5,6 +5,18 @@ import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 import Layout from '../components/Layout'
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  TumblrShareButton,
+  TumblrIcon,
+  LineShareButton,
+  LineIcon,
+  EmailShareButton,
+  EmailIcon,
+} from 'react-share';
 import Content, { HTMLContent } from '../components/Content'
 
 export const BlogPostTemplate = ({
@@ -56,12 +68,10 @@ export const BlogPostTemplate = ({
       </section>
       <section className="section">
         <div className="container">
-          <div className="image">
-            
-          </div>
           <div className="content">
             <PostContent content={content} />
           </div>
+          <ShareButtons url="https://pito.run/blog/" title={title} description={description}/>
         </div>
       </section>
     </article>
@@ -76,6 +86,44 @@ BlogPostTemplate.propTypes = {
   date: PropTypes.date,
   title: PropTypes.string,
   helmet: PropTypes.object,
+}
+
+const ShareButtons = ({ url, title, description }) => {
+  return (
+    <div className="columns is-gapless is-mobile is-centered">
+      <div className="column"></div>
+      <div className="column">
+        <p className="is-3">Share:</p>
+        <a class="button" href={'https://mastoshare.net/post.php?text='+title} target="_blank" rel="noopener strict-origin origin" style={{'background-color': "#2b90d9"}}>Mastodon</a>
+        <Link className="button">
+          <TwitterShareButton url={url} title={title}>
+            <TwitterIcon size={32} />
+          </TwitterShareButton>
+        </Link>
+        <Link className="button">
+          <FacebookShareButton url={url}>
+            <FacebookIcon size={32} />
+          </FacebookShareButton>
+        </Link>
+        <Link className="button">
+          <TumblrShareButton url={url} title={title} caption={description}>
+            <TumblrIcon size={32} />
+          </TumblrShareButton>
+        </Link>
+        <Link className="button">
+          <LineShareButton url={url} title={title}>
+            <LineIcon size={32} />
+          </LineShareButton >
+        </Link>
+        <Link className="button">
+          <EmailShareButton url={url} subject={title}>
+            <EmailIcon size={32} />
+          </EmailShareButton>
+        </Link>
+      </div>
+      <div class="column"></div>
+  </div>
+  )
 }
 
 const BlogPost = ({ data }) => {
