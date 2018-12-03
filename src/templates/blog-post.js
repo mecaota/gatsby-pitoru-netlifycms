@@ -25,11 +25,18 @@ export const BlogPostTemplate = ({
         {helmet || ''}
         <div className="hero-body">
           <div className="container has-text-centered">
-            <div className="columns is-multiline">
-              <div className="column is-full"></div>
-              <div className="column is-10 is-offset-1">
+            <div className="columns is-multiline is-centered">
+              <div className="column is-full nav-margin"></div>
+              <div className="column is-full">
+                <h1 className="title is-4 is-spaced">{title}</h1>
+                <h2 className="subtitle is-6">{description}</h2>
+              </div>
+              <div className="column is-full">
+                <p>投稿日: {date}</p>
+              </div>
+              <div className="column">
                 {tags && tags.length ? (
-                  <div class="field is-grouped is-grouped-multiline nav-margin">
+                  <div class="field is-grouped is-grouped-multiline">
                     <div className="tags are-small">
                     <span className="tag is-dark is-small">Tags</span>
                       {tags.map(tag => (
@@ -41,15 +48,9 @@ export const BlogPostTemplate = ({
                   </div>
                 ) : null}
               </div>
-              <div className="column is-10 is-offset-1">
-                <h1 className="title is-4 is-spaced">{title}</h1>
-                <h2 className="subtitle is-6">{description}</h2></div>
-              </div>
-              <div className="column is-10 is-offset-1">
-                <p>投稿日: {date}</p>
-              </div>
               <div className="column is-full"></div>
-              <Img fluid={image.childImageSharp.fluid} alt="記事のイメージ画像"/>
+            </div>
+            <Img fluid={image.childImageSharp.fluid} alt="記事のイメージ画像"/>
           </div>
         </div>
       </section>
