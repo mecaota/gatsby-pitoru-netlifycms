@@ -99,7 +99,7 @@ const BlogPost = ({ data }) => {
             <meta property="og:image" content={post.frontmatter.image.childImageSharp.fixed.src} />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@mecaota" />
-            <meta name="twitter:image" content={post.frontmatter.image.childImageSharp.fixed.src}></meta>
+            <meta name="twitter:image" content={post.frontmatter.image.childImageSharp.fixed.src} />
           </Helmet>
         }
         tags={post.frontmatter.tags}
