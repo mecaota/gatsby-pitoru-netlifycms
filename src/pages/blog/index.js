@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import { Link, graphql } from 'gatsby'
+import Img from "gatsby-image"
 import Layout from '../../components/Layout'
 
 export default class BlogPage extends React.Component {
@@ -19,7 +20,7 @@ export default class BlogPage extends React.Component {
           </div>
         </section>
         <section className="section">
-          <div className="container content">
+          <div className="container">
             <div className="columns is-multiline is-primary">
               {posts
                 .map(({ node: post }) => (
@@ -36,12 +37,15 @@ export default class BlogPage extends React.Component {
                         </p>
                       </header>
                       <div className="card-image">
-                      <figure className="image is-2by1">
                         <Link to={post.fields.slug}>
-                          <img src={post.frontmatter.image.childImageSharp.fixed.src} alt="記事イメージ画像" />
+                          <Img
+                            fixed={post.frontmatter.image.childImageSharp.fixed}
+                            className="image is-2by1"
+                            Tag="figure"
+                            alt="記事のイメージ画像"
+                            style={{width: "100%", height: "100%"}}
+                          />
                         </Link>
-                      </figure>
-                        
                       </div>
                       <div className="card-content">
                         <div className="content">
@@ -95,7 +99,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
+          excerpt(pruneLength: 140)
           id
           fields {
             slug
@@ -107,7 +111,7 @@ export const pageQuery = graphql`
             tags
             image {
               childImageSharp {
-                fixed(width: 600, height:300) {
+                fixed(width: 400, height:200) {
                   ...GatsbyImageSharpFixed
                 }
               }

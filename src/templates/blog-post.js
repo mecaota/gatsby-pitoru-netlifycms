@@ -61,8 +61,8 @@ export const BlogPostTemplate = ({
                 ) : null}
               </div>
               <div className="column is-full"></div>
+              <Img fluid={image.childImageSharp.fluid} className="column is-full" alt="記事のイメージ画像"/>
             </div>
-            <Img fluid={image.childImageSharp.fluid} alt="記事のイメージ画像"/>
           </div>
         </div>
       </section>
