@@ -25,7 +25,7 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
-  image,
+  heroimage,
   date,
   helmet,
 }) => {
@@ -61,7 +61,7 @@ export const BlogPostTemplate = ({
                 ) : null}
               </div>
               <div className="column is-full"></div>
-              <Img fluid={image.childImageSharp.fluid} className="column is-full" alt="記事のイメージ画像"/>
+              <Img fluid={heroimage} className="column is-full" alt="記事のイメージ画像"/>
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
-  image: PropTypes.oneOfType(PropTypes.object),
+  heroimage: PropTypes.oneOfType(PropTypes.object),
   date: PropTypes.date,
   title: PropTypes.string,
   helmet: PropTypes.object,
@@ -135,7 +135,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        image={post.frontmatter.image}
+        heroimage={post.frontmatter.image.childImageSharp.fluid}
         helmet={
           <Helmet
             titleTemplate="%s | pitoruの多趣味日記"
