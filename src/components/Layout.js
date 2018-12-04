@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from "gatsby"
 import CookieConsent from "react-cookie-consent";
 import Navbar from '../components/Navbar'
+import logo from '../img/logo.png'
 import './all.sass'
 
 const TemplateWrapper = ({ slug, children }) => (
@@ -27,11 +28,13 @@ const TemplateWrapper = ({ slug, children }) => (
           <meta name="description" content={data.site.siteMetadata.description} />
           <meta property="og:title" content={data.site.siteMetadata.title}/>
           <meta property="og:description" content={data.site.siteMetadata.description} />
+          <meta property="og:image" content={logo} />
           <meta property="og:site_name" content="pitoruの多趣味日記" />
           <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@mecaota" />
+          <meta name="twitter:image" content={logo} />
           <meta property="fb:app_id" content="000000000000000"></meta>
         </Helmet>
         <Navbar />

@@ -145,10 +145,10 @@ const BlogPost = ({ data }) => {
             <meta property="og:title" content={post.frontmatter.title}/>
             <meta property="og:description" content={post.frontmatter.description} />
             <meta property="og:type" content="artcle" />
-            <meta property="og:image" content={post.frontmatter.image.childImageSharp.fixed.src} />
+            <meta property="og:image" content={"https://pito.run"+ post.frontmatter.image.childImageSharp.fixed.src} />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@mecaota" />
-            <meta name="twitter:image" content={post.frontmatter.image.childImageSharp.fixed.src} />
+            <meta name="twitter:image" content={"https://pito.run"+ post.frontmatter.image.childImageSharp.fixed.src} />
           </Helmet>
         }
         tags={post.frontmatter.tags}
