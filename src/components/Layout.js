@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from "gatsby"
-import CookieConsent from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent"
 import Navbar from '../components/Navbar'
 import logo from '../img/logo.png'
 import './all.sass'
