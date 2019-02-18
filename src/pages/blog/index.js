@@ -11,7 +11,7 @@ export default class BlogPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <Layout>
+      <Layout menu="blog">
         <section className="hero is-primary is-bold is-fixed">
           <div className="hero-body">
             <div className="container has-text-centered">

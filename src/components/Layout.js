@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 import logo from '../img/logo.png'
 import './all.sass'
 
-const TemplateWrapper = ({ slug, children }) => (
+const TemplateWrapper = ({ slug, children, menu }) => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -37,7 +37,7 @@ const TemplateWrapper = ({ slug, children }) => (
           <meta name="twitter:image" content={logo} />
           <meta property="fb:app_id" content="000000000000000"></meta>
         </Helmet>
-        <Navbar />
+        <Navbar menu={menu} />
         <div>{children}</div>
         <div className="message">
           <CookieConsent buttonText="OK" containerClasses="message-header" disableStyles={false} style={{ background:"rgba(27, 94, 32, 0.9)"}} buttonStyle={{background:"#ffffff"}}>

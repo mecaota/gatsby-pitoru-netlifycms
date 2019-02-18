@@ -1,13 +1,13 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // base color
+$white: #fafafa
 $primary: #1b5e20
 $primary-invert: $white
 $dark: #003300
 $dark-invert: $white
 $light: #4c8c4a
 $light-invert: $black
-$background-card: $white-bis
 
 $text: $black
 $text-invert: $white
@@ -16,18 +16,12 @@ $link: $primary
 $link-invert: $primary-invert
 $link-visited: $light
 
-// custom nav color 
-//$navbar-background-color: $dark
+// custom nav color
 $tabs-link-color: $dark-invert
-$tabs-link-active-color: $primary-invert
-$tabs-boxed-link-active-background-color: $dark
 $tabs-boxed-link-hover-background-color: $light
-$tabs-boxed-link-hover-border-bottom-color: transparent
+$navbar-item-active-background-color: $white
+$navbar-item-active-color: $primary
 $tabs-border-bottom-color: transparent
-
-// custom card color
-$card-background-color: $background-card
-$card-footer-background-color: $background-card
 
 .content .taglist
   list-style: none
@@ -61,7 +55,7 @@ $card-footer-background-color: $background-card
 .blur
   background-color: rgba(27, 94, 32, 0.8)
   width: 100%
-
+ 
 .is-with-nav
   .hero-body
     margin-top: 20vh

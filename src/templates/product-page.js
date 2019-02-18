@@ -136,7 +136,7 @@ const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
+    <Layout menu="products">
       <ProductPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
