@@ -12,14 +12,14 @@ export default class BlogPage extends React.Component {
 
     return (
       <Layout menu="blog">
-        <section className="hero is-primary is-bold is-fixed">
+        <section className="section section--gradient hero is-primary is-bold is-fixed">
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title is-4 is-spaced nav-margin">投稿一覧</h1>
             </div>
           </div>
         </section>
-        <section className="section">
+        <section className="section section--gradient">
           <div className="container">
             <div className="columns is-multiline is-primary">
               {posts

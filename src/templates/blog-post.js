@@ -33,7 +33,7 @@ export const BlogPostTemplate = ({
 
   return (
     <article>
-      <section className="hero is-primary is-bold is-fixed">
+      <section className="section section--gradient hero is-primary is-bold is-fixed">
         {helmet || ''}
         <div className="hero-body">
           <div className="container has-text-centered">

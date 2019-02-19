@@ -40,22 +40,20 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout menu="home">
-        <section className="">
-          <div className="hero is-fullheight is-primary is-bold is-fixed" style={{backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,}}>
-            <div className="hero-body">
-              <div className="container .blur">
-                <h1 className="title">pito.run</h1>
-                <h2 className="subtitle">Welcome</h2>
-              </div>
+        <section className="section section--gradient hero is-fullheight is-primary is-bold is-fixed" style={{backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,}}>
+          <div className="hero-body">
+            <div className="container .blur">
+              <h1 className="title">pito.run</h1>
+              <h2 className="subtitle">Welcome</h2>
             </div>
-            
-            <div className="hero-foot">
-              <div className="container has-text-centered .blur">
-                <button className="button is-primary" onClick={this.down_imageindex.bind(this)}>←</button>
-                <button className="button is-primary" onClick={this.up_imageindex.bind(this)}>→</button>
-                {this.state.image_index}
-                <p>↓</p>
-              </div>
+          </div>
+          
+          <div className="hero-foot">
+            <div className="container has-text-centered .blur">
+              <button className="button is-primary" onClick={this.down_imageindex.bind(this)}>←</button>
+              <button className="button is-primary" onClick={this.up_imageindex.bind(this)}>→</button>
+              {this.state.image_index}
+              <p>↓</p>
             </div>
           </div>
         </section>
