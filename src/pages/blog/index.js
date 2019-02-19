@@ -49,7 +49,8 @@ export default class BlogPage extends React.Component {
                       </div>
                       <div className="card-content">
                         <div className="content">
-                          {post.excerpt}
+                          {/*post.excerpt*/}
+                          {post.frontmatter.description}
                         </div>
                         {post.frontmatter.tags && post.frontmatter.tags.length ? (
                           <div className="field is-grouped is-grouped-multiline">
@@ -106,6 +107,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            description
             templateKey
             date(formatString: "YYYY/MM/DD")
             tags
