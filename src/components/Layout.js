@@ -1,10 +1,15 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from "gatsby"
-import CookieConsent from "react-cookie-consent"
-import Navbar from '../components/Navbar'
-import logo from '../img/logo.png'
-import './all.sass'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from "gatsby";
+import CookieConsent from "react-cookie-consent";
+import Navbar from '../components/Navbar';
+import logo from '../img/logo.png';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import './all.sass';
+library.add(fab, fas, far);
 
 const TemplateWrapper = ({ slug, children, menu }) => (
   <StaticQuery

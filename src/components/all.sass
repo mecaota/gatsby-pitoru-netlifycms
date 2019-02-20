@@ -53,8 +53,33 @@ $tabs-border-bottom-color: transparent
   align-items: center
 
 .blur
-  background-color: rgba(27, 94, 32, 0.8)
+  z-index: 5
+  background-color: $white
   width: 100%
+  opacity: 0.9
+
+.whiteback
+  z-index: 5
+  background-color: $white
+  width: 100%
+  opacity: 0.999
+
+.background-cover
+  background-size: cover
+  background-clip: border-box
+  z-index: 0
+  object-fit: cover
+  width: 100%
+  height: 100%
+  position: fixed
+
+.fadein
+  opacity: 1.0
+  transition: opacity 500ms 0s ease
+
+.fadeout
+  opacity: 0
+  transition: opacity 500ms 0s ease
  
 .is-with-nav
   .hero-body
@@ -74,5 +99,25 @@ $tabs-border-bottom-color: transparent
     top: 50vh
     right: 0
     left: 0
+
+.swipe-anime
+  animation: swipedown 1s ease
+  animation-iteration-count: infinite
+
+@keyframes swipedown
+  0%
+    transform: translateY(0px)
+  80%
+    transform: translateY(20px)
+  100%
+    transform: translateY(0px)
+
+@keyframes fadeinout
+  0%
+    opacify: 1
+  50%
+    opacity: 0
+  100%
+    opacity: 1
 
 @import "~bulma"

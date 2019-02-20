@@ -48,7 +48,7 @@ export const BlogPostTemplate = ({
               </div>
               <div className="column">
                 {tags && tags.length ? (
-                  <div class="field is-grouped is-grouped-multiline">
+                  <div className="field is-grouped is-grouped-multiline">
                     <div className="tags are-small">
                     <span className="tag is-dark is-small">Tags</span>
                       {tags.map(tag => (
@@ -94,7 +94,7 @@ const ShareButtons = ({ url, title, description }) => {
       <div className="column"></div>
       <div className="column">
         <p className="is-3">Share:</p>
-        <a class="button" href={'https://mastoshare.net/post.php?text='+title} target="_blank" rel="noopener strict-origin origin" style={{'background-color': "#2b90d9"}}>Mastodon</a>
+        <a className="button" href={'https://mastoshare.net/post.php?text='+title} target="_blank" rel="noopener strict-origin origin" style={{'background-color': "#2b90d9"}}>Mastodon</a>
         <Link className="button">
           <TwitterShareButton url={url} title={title}>
             <TwitterIcon size={32} />
@@ -121,7 +121,7 @@ const ShareButtons = ({ url, title, description }) => {
           </EmailShareButton>
         </Link>
       </div>
-      <div class="column"></div>
+      <div className="column"></div>
   </div>
   )
 }
