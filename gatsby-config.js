@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'pitoruの多趣味日記++',
-    description: 'ここは、pitoruが趣味の何かをいろいろする為のページです。（アクセス保証は）ないです。',
-    siteUrl: "https://pito.run",
+    description:
+      'ここは、pitoruが趣味の何かをいろいろする為のページです。（アクセス保証は）ないです。',
+    siteUrl: 'https://pito.run',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -72,7 +73,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-83694319-3",
+        trackingId: 'UA-83694319-3',
         // Puts tracking script in the head instead of the body
         head: false,
         // Setting this parameter is optional
@@ -80,12 +81,12 @@ module.exports = {
         // Setting this parameter is also optional
         respectDNT: true,
         // Avoids sending pageview hits from custom paths
-        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        exclude: ['/preview/**', '/do-not-track/me/too/'],
         // Any additional create only fields (optional)
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: "pito.run",
-      }
+        cookieDomain: 'pito.run',
+      },
     },
     {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
@@ -96,4 +97,4 @@ module.exports = {
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
-}
+};
