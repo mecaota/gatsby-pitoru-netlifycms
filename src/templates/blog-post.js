@@ -105,8 +105,8 @@ const ShareButtons = ({ url, title, description }) => {
         <a
           className="button"
           href={'https://mastoshare.net/post.php?text=' + title}
-          target="_blank"
-          rel="noopener strict-origin origin"
+          target="_blank" // eslint-disable-line
+          rel="noopener strict-origin origin" // eslint-disable-line
           style={{ 'background-color': '#2b90d9' }}
         >
           Mastodon

@@ -92,7 +92,7 @@ class Hero extends React.Component {
                     <li>
                       <button
                         className={
-                          index == this.state.image_index
+                          index === this.state.image_index
                             ? 'pagination-link is-current'
                             : 'pagination-link'
                         }
@@ -122,9 +122,6 @@ class Hero extends React.Component {
 }
 
 export default class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { data } = this.props;
     const images = [

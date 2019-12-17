@@ -4,7 +4,7 @@ import logo from '../img/logo.png';
 
 const Navbar = ({ menu }) => {
   function isActive(classnames, linkmenu) {
-    if (linkmenu == menu) {
+    if (linkmenu === menu) {
       return classnames + ' is-active';
     } else {
       return classnames;
