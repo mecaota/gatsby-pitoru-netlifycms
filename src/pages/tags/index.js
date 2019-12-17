@@ -5,9 +5,14 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 
 const TagsPage = ({
-  data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
+  data: {
+    allMarkdownRemark: { group },
+    site: {
+      siteMetadata: { title },
+    },
+  },
 }) => (
-  <Layout menu="blog">
+  <Layout>
     <section className="section">
       <Helmet title={`Tags | ${title}`} />
       <div className="container content">
