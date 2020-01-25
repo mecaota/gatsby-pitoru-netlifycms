@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import CookieConsent from 'react-cookie-consent';
 import Navbar from '../components/Navbar';
 import logo from '../img/logo.png';
-import 'ress';
+//import 'ress';
 import './all.scss';
 import styles from '../style/layout.module.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'; //fontawesomeのコアファイル
