@@ -1,15 +1,5 @@
 @import './variable.scss';
 
-// reset
-ul {
-  list-style-type: none;
-}
-button {
-  border-color: transparent;
-  background-color: inherit;
-  color: inherit;
-}
-
 // ナビコンテナ
 .navi {
   display: flex;
