@@ -5,18 +5,7 @@ import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../components/Layout';
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  TumblrShareButton,
-  TumblrIcon,
-  LineShareButton,
-  LineIcon,
-  EmailShareButton,
-  EmailIcon,
-} from 'react-share';
+import ShareButton from '../components/ShareButton';
 import Content, { HTMLContent } from '../components/Content';
 
 export const BlogPostTemplate = ({
@@ -95,22 +84,9 @@ const ShareButtons = ({ url, title, description }) => {
       <div className='column'></div>
       <div className='column'>
         <p className='is-3'>Share:</p>
-        <Link className='button' to={'https://mastoshare.net/post.php?text='+encodeURI(title+'\n'+url)} target='_blank' rel='noopener noreferrer' style={{'backgroundColor': '#2b90d9'}}>Mastodon</Link>
-        <TwitterShareButton url={url} title={title}>
-            <TwitterIcon size={32} />
-          </TwitterShareButton>
-          <FacebookShareButton url={url}>
-            <FacebookIcon size={32} />
-          </FacebookShareButton>
-          <TumblrShareButton url={url} title={title} caption={description}>
-            <TumblrIcon size={32} />
-          </TumblrShareButton>
-          <LineShareButton url={url} title={title}>
-            <LineIcon size={32} />
-          </LineShareButton >
-          <EmailShareButton url={url} subject={title}>
-            <EmailIcon size={32} />
-          </EmailShareButton>
+        <ShareButton title={title} url={url} class_text='' hashtag='' sns='twitter'/>
+        <ShareButton title={title} url={url} class_text='' hashtag='' sns='facebook'/>
+        <ShareButton title={title} url={url} class_text='' hashtag='' sns='mastodon'/>
       </div>
       <div className='column'></div>
   </div>
