@@ -46,6 +46,10 @@
   }
   button.hamburger {
     height: $navi_height;
+    transition: transform 0.2s;
+    &.naviopen {
+      transform: rotate(90deg);
+    }
   }
 }
 // 左ナビ(タブレット幅以上)

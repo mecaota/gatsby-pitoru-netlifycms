@@ -18,7 +18,7 @@ const Navbar = ({menu}) => {
       {/* 左ナビ */}
       <div className={styles.leftnavi}>
         <ul className={styles.leftnavi_inner}>
-          <NavHamburger func={()=>{set_navi_open(!is_navi_open);}}/>
+          <NavHamburger is_rotate={is_navi_open} func={()=>{set_navi_open(!is_navi_open);}}/>
           <NavItem menuname='Home' path='/' classes={isActive('home')} />
           <NavItem menuname='About' path='/about' classes={isActive('about')} />
           <NavItem menuname='Works' path='/products' classes={isActive('products')} />
@@ -45,9 +45,9 @@ const NavItem = ({menuname, path, classes})=> {
   );
 };
 
-const NavHamburger = ({func})=> {
+const NavHamburger = ({func, is_rotate})=> {
   return (
-    <li><button className={styles.hamburger} onClick={func}>
+    <li><button className={is_rotate ? `${styles.hamburger} ${styles.naviopen}` : styles.hamburger} onClick={func}>
       <FontAwesomeIcon size='2x' icon={['fas', 'bars']} color='#ffffff' />
     </button></li>
   );
