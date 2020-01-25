@@ -1,42 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../img/logo.png';
+import styles from '../style/navi.module.scss';
 
 const Navbar = ({menu}) => {
-  function isActive(classnames, linkmenu){
+  const [is_navi_open, set_navi_open] = useState(false);
+  const isActive = (linkmenu)=>{
     if(linkmenu === menu){
-      return classnames+' is-active';
+      return styles.active;
     }else{
-      return classnames;
+      return '';
     }
-  }
+  };
   return (
-    <nav className='navbar is-fixed-top is-primary'>
-      <div className='container'>
-        <div className='navbar-brand'>
-          <div className='navbar-item'>
-            <img src={logo} alt='🏠' style={{ height: '2rem' }} />
-              &nbsp;&nbsp;pitoruの多趣味日記++
-          </div>
-        </div>
-        <div className='tabs is-boxed is-medium'>
-          <ul>
-            <li className=''><Link to='/' className={isActive('navbar-item', 'home')} title='Home'>
-              Home
-            </Link></li>
-            <li className=''><Link className={isActive('navbar-item', 'about')} to='/about' title='About'>
-              About
-            </Link></li>
-            <li className=''><Link className={isActive('navbar-item', 'products')} to='/products' title='Products'>
-              Products
-            </Link></li>
-            <li className=''><Link className={isActive('navbar-item', 'blog')} to='/blog' title='Blog'>
-              Blog
-            </Link></li>
-          </ul>
-        </div>
+    <nav className={is_navi_open ? `${styles.navi} ${styles.naviopen}` : styles.navi}>
+      {/* 左ナビ */}
+      <div className={styles.leftnavi}>
+        <ul className={styles.leftnavi_inner}>
+          <NavHamburger func={()=>{set_navi_open(!is_navi_open);}}/>
+          <NavItem menuname='Home' path='/' classes={isActive('home')} />
+          <NavItem menuname='About' path='/about' classes={isActive('about')} />
+          <NavItem menuname='Works' path='/products' classes={isActive('products')} />
+          <NavItem menuname='Blog' path='/blog' classes={isActive('blog')} />
+        </ul>
+      </div>
+
+      {/* 右ナビ */}
+      <div className={styles.rightnavi}>
+        <span className={styles.rightnavi_inner}>
+          <img src={logo} alt='🏠' style={{ height: '2rem' }} />
+          <p>pitoruの多趣味日記++</p>
+        </span>
       </div>
     </nav>
+  );
+};
+
+const NavItem = ({menuname, path, classes})=> {
+  return (
+    <li>
+      <Link to={path} className={classes} title={menuname}>{menuname}</Link>
+    </li>
+  );
+};
+
+const NavHamburger = ({func})=> {
+  return (
+    <li><button className={styles.hamburger} onClick={func}>
+      <FontAwesomeIcon size='2x' icon={['fas', 'bars']} color='#ffffff' />
+    </button></li>
   );
 };
 
