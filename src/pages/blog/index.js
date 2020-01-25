@@ -22,60 +22,57 @@ export default class BlogPage extends React.Component {
         <section className='section section--gradient'>
           <div className='container'>
             <div className='columns is-multiline is-primary'>
-              {posts
-                .map(({ node: post }) => (
-                  <div className='column is-half'>
-                    <div
-                      className='card'
-                      key={post.id}
-                    >
-                      <header className='card-header'>
-                        <p>
-                          <Link className='card-header-title' to={post.fields.slug}>
-                            {post.frontmatter.title}
-                          </Link>
-                        </p>
-                      </header>
-                      <div className='card-image'>
-                        <Link to={post.fields.slug}>
-                          <Img
-                            fixed={post.frontmatter.image.childImageSharp.fixed}
-                            className='image is-2by1'
-                            Tag='figure'
-                            alt='記事のイメージ画像'
-                            style={{width: '100%', height: '100%'}}
-                          />
+              {posts.map(({ node: post }) => (
+                <div key={post.id} className='column is-half'>
+                  <div className='card'>
+                    <header className='card-header'>
+                      <p>
+                        <Link className='card-header-title' to={post.fields.slug}>
+                          {post.frontmatter.title}
                         </Link>
-                      </div>
-                      <div className='card-content'>
-                        <div className='content'>
-                          {/*post.excerpt*/}
-                          {post.frontmatter.description}
-                        </div>
-                        {post.frontmatter.tags && post.frontmatter.tags.length ? (
-                          <div className='field is-grouped is-grouped-multiline'>
-                            <div className='tags'>
-                              <span className='tag is-dark is-medium'>Tags</span>
-                                {post.frontmatter.tags.map(tag => (
-                                  <span className='tag is-medium' key={tag + 'tag'}>
-                                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                          ) : null}
-                      </div>
-                      <footer className='card-footer'>
-                        <div className='card-footer-item'>
-                          投稿日: {post.frontmatter.date}
-                        </div>
-                        <Link className='card-footer-item' to={post.fields.slug}>
-                          続きを見る →
-                        </Link>
-                      </footer>
+                      </p>
+                    </header>
+                    <div className='card-image'>
+                      <Link to={post.fields.slug}>
+                        <Img
+                          fixed={post.frontmatter.image.childImageSharp.fixed}
+                          className='image is-2by1'
+                          Tag='figure'
+                          alt='記事のイメージ画像'
+                          style={{width: '100%', height: '100%'}}
+                        />
+                      </Link>
                     </div>
+                    <div className='card-content'>
+                      <div className='content'>
+                        {/*post.excerpt*/}
+                        {post.frontmatter.description}
+                      </div>
+                      {post.frontmatter.tags && post.frontmatter.tags.length ? (
+                        <div className='field is-grouped is-grouped-multiline'>
+                          <div className='tags'>
+                            <span className='tag is-dark is-medium'>Tags</span>
+                              {post.frontmatter.tags.map(tag => (
+                                <span className='tag is-medium' key={tag + 'tag'}>
+                                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ) : null}
+                    </div>
+                    <footer className='card-footer'>
+                      <div className='card-footer-item'>
+                        投稿日: {post.frontmatter.date}
+                      </div>
+                      <Link className='card-footer-item' to={post.fields.slug}>
+                        続きを見る →
+                      </Link>
+                    </footer>
                   </div>
-                ))}
+                </div>
+                ))
+              }
             </div>
           </div>
         </section>

@@ -66,7 +66,7 @@ class Hero extends React.Component{
                   {
                     this.state.images.map(
                       (image, index) => (
-                        <li><button className={index===this.state.image_index?"pagination-link is-current":"pagination-link"} aria-label={"画像"+index} onClick={this.set_imageindex.bind(this, index)}>{index}</button></li>
+                        <li key={index}><button className={index===this.state.image_index?"pagination-link is-current":"pagination-link"} aria-label={"画像"+index} onClick={this.set_imageindex.bind(this, index)}>{index}</button></li>
                       )
                     )
                   }
