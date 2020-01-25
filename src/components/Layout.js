@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import logo from '../img/logo.png';
 //import 'ress';
 import './all.scss';
-import styles from '../style/layout.module.scss';
+//import styles from '../style/layout.module.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'; //fontawesomeのコアファイル
 import { fab } from '@fortawesome/free-brands-svg-icons'; //fontawesomeのbrandアイコンのインポート
 import { fas } from '@fortawesome/free-solid-svg-icons'; //fontawesomeのsolidアイコンのインポート
