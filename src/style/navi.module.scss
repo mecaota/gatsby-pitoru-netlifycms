@@ -1,0 +1,78 @@
+@import './variable.scss';
+
+// ナビコンテナ
+.navi {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: $navi_height;
+  z-index: 100;
+  background-color: $primary;
+  justify-content: space-between;
+  transition: height 0.2s;
+  &.naviopen {
+    height: 100vh;
+  }
+}
+
+//左ナビ(タブレット幅以下)
+// デフォルトでハンバーガーボタンのみを表示
+.leftnavi {
+  height: 100%;
+  padding: 0 $padding-default;
+  overflow: hidden;
+}
+.leftnavi_inner {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  a {
+    display: flex;
+    height: 100%;
+    font-size: 24px;
+    color: $white;
+    text-decoration: none;
+    align-items: center;
+    padding: 0 $padding-default;
+    &:hover {
+      color: $primary;
+      background-color: $white;
+      opacity: 0.7;
+    }
+    &.active {
+      color: $primary;
+      background-color: $white;
+    }
+  }
+  button.hamburger {
+    height: $navi_height;
+    transition: transform 0.2s;
+    &.naviopen {
+      transform: rotate(90deg);
+    }
+  }
+}
+// 左ナビ(タブレット幅以上)
+// ハンバーガーボタンを隠して、メニューボタンを表示
+@media screen and (min-width: $responsive) {
+  .leftnavi_inner {
+    flex-direction: row;
+    button.hamburger {
+      display: none;
+    }
+    a.active {
+      border-radius: 0 0 16px 16px;
+    }
+  }
+}
+
+// 右ナビ
+.rightnavi {
+  background-color: white;
+}
+.rightnavi_inner {
+  display: inline-flex;
+  height: 100%;
+  min-width: 200px;
+  align-items: center;
+}

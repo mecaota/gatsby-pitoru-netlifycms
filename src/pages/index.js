@@ -60,13 +60,13 @@ class Hero extends React.Component{
           <div className="hero-foot">
             <div className="container has-text-centered .blur">
               <nav className="pagination is-centered is-rounded is-small" role="navigation" aria-label="pagination">
-                <button className="pagination-previous is-size-4" onClick={this.down_imageindex.bind(this)}>←</button>
-                <button className="pagination-next is-size-4" onClick={this.up_imageindex.bind()}>→</button>
+                <button className="button is-white pagination-previous is-size-4" onClick={this.down_imageindex.bind(this)}>←</button>
+                <button className="button is-white pagination-next is-size-4" onClick={this.up_imageindex.bind()}>→</button>
                 <ul className="pagination-list">
                   {
                     this.state.images.map(
                       (image, index) => (
-                        <li><button className={index==this.state.image_index?"pagination-link is-current":"pagination-link"} aria-label={"画像"+index} onClick={this.set_imageindex.bind(this, index)}>{index}</button></li>
+                        <li key={index}><button className={index===this.state.image_index?"pagination-link is-current":"button is-white pagination-link"} aria-label={"画像"+index} onClick={this.set_imageindex.bind(this, index)}>{index}</button></li>
                       )
                     )
                   }
@@ -82,9 +82,6 @@ class Hero extends React.Component{
 }
 
 export default class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { data } = this.props;
     const images = [!!data.image1.childImageSharp ? data.image1.childImageSharp.fluid.src : data.image1, !!data.image2.childImageSharp ? data.image2.childImageSharp.fluid.src : data.image2];

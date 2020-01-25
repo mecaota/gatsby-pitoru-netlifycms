@@ -1,0 +1,148 @@
+@import "~bulma/sass/utilities/initial-variables";
+
+// base color
+$white: #fafafa;
+$primary: #1b5e20;
+$primary-invert: $white;
+$dark: #003300;
+$dark-invert: $white;
+$light: #4c8c4a;
+$light-invert: $black;
+
+$text: $black;
+$text-invert: $white;
+$text-strong: #002200;
+$link: $primary;
+$link-invert: $primary-invert;
+$link-visited: $light;
+
+// custom nav color
+$tabs-link-color: $dark-invert;
+$tabs-boxed-link-hover-background-color: $light;
+$navbar-item-active-background-color: $white;
+$navbar-item-active-color: $primary;
+$tabs-border-bottom-color: transparent;
+
+.content .taglist{
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  li {
+    padding: 0 2rem 1rem 0;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+  }
+}
+
+
+// Helper Classes
+.full-width-image-container {
+  width: 100vw;
+  height: 400px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 5em -50vw;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blur {
+  z-index: 5;
+  background-color: $white;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.whiteback {
+  z-index: 5;
+  background-color: $white;
+  width: 100%;
+  opacity: 0.999;
+}
+
+.background-cover {
+  background-size: cover;
+  background-clip: border-box;
+  z-index: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.fadein {
+  opacity: 1.0;
+  transition: opacity 500ms 0s ease;
+}
+
+.fadeout {
+  opacity: 0;
+  transition: opacity 500ms 0s ease;
+}
+
+.is-with-nav {
+  .hero-body {
+    margin-top: 20vh;
+  }
+}
+
+.nav-margin {
+  margin-top: 15vh
+}
+
+.is-fixed {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  object-fit: cover;
+}
+
+.float-title {
+  padding {
+    top: 50vh;
+    right: 0;
+    left: 0;
+  }
+}
+
+.swipe-anime {
+  animation: swipedown 1s ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes swipedown {
+  0% {
+    transform: translateY(0px);
+  }
+  80% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeinout {
+  0% {
+    opacify: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@import "~bulma"

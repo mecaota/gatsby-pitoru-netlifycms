@@ -1,0 +1,19 @@
+// base color
+$white: #fafafa;
+$primary: #1b5e20;
+$primary-invert: $white;
+$dark: #003300;
+$dark-invert: $white;
+
+// size
+$navi_height: 48px;
+
+// default padding
+$padding-default: 8px;
+
+// responsive size
+$responsive: 768px;
+
+.container {
+  display: flex;
+}
