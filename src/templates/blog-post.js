@@ -33,26 +33,26 @@ export const BlogPostTemplate = ({
 
   return (
     <article>
-      <section className='section section--gradient hero is-primary is-bold is-fixed'>
+      <section className="section section--gradient hero is-primary is-bold is-fixed">
         {helmet || ''}
-        <div className='hero-body'>
-          <div className='container has-text-centered'>
-            <div className='columns is-multiline is-centered'>
-              <div className='column is-full nav-margin'></div>
-              <div className='column is-full'>
-                <h1 className='title is-4 is-spaced'>{title}</h1>
-                <h2 className='subtitle is-6'>{description}</h2>
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <div className="columns is-multiline is-centered">
+              <div className="column is-full nav-margin"></div>
+              <div className="column is-full">
+                <h1 className="title is-4 is-spaced">{title}</h1>
+                <h2 className="subtitle is-6">{description}</h2>
               </div>
-              <div className='column is-full'>
+              <div className="column is-full">
                 <p>投稿日: {date}</p>
               </div>
-              <div className='column'>
+              <div className="column">
                 {tags && tags.length ? (
-                  <div className='field is-grouped is-grouped-multiline'>
-                    <div className='tags are-small'>
-                    <span className='tag is-dark is-small'>Tags</span>
+                  <div className="field is-grouped is-grouped-multiline">
+                    <div className="tags are-small">
+                      <span className="tag is-dark is-small">Tags</span>
                       {tags.map(tag => (
-                        <span className='tag is-small' key={tag + 'tag'}>
+                        <span className="tag is-small" key={tag + 'tag'}>
                           <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                         </span>
                       ))}
@@ -60,18 +60,26 @@ export const BlogPostTemplate = ({
                   </div>
                 ) : null}
               </div>
-              <div className='column is-full'></div>
-              <Img fluid={heroimage} className='column is-full' alt='記事のイメージ画像'/>
+              <div className="column is-full"></div>
+              <Img
+                fluid={heroimage}
+                className="column is-full"
+                alt="記事のイメージ画像"
+              />
             </div>
           </div>
         </div>
       </section>
-      <section className='section'>
-        <div className='container'>
-          <div className='content'>
+      <section className="section">
+        <div className="container">
+          <div className="content">
             <PostContent content={content} />
           </div>
-          <ShareButtons url='https://pito.run/blog/' title={title} description={description}/>
+          <ShareButtons
+            url="https://pito.run/blog/"
+            title={title}
+            description={description}
+          />
         </div>
       </section>
     </article>
@@ -90,39 +98,47 @@ BlogPostTemplate.propTypes = {
 
 const ShareButtons = ({ url, title, description }) => {
   return (
-    <div className='columns is-gapless is-mobile is-centered'>
-      <div className='column'></div>
-      <div className='column'>
-        <p className='is-3'>Share:</p>
-        <a className='button' href={'https://mastoshare.net/post.php?text='+title} target='_blank' rel='noopener strict-origin origin' style={{'background-color': '#2b90d9'}}>Mastodon</a>
-        <Link className='button'>
+    <div className="columns is-gapless is-mobile is-centered">
+      <div className="column"></div>
+      <div className="column">
+        <p className="is-3">Share:</p>
+        <a
+          className="button"
+          href={'https://mastoshare.net/post.php?text=' + title}
+          target="_blank" // eslint-disable-line
+          rel="noopener strict-origin origin" // eslint-disable-line
+          style={{ 'background-color': '#2b90d9' }}
+        >
+          Mastodon
+        </a>
+        <Link className="button">
           <TwitterShareButton url={url} title={title}>
             <TwitterIcon size={32} />
           </TwitterShareButton>
         </Link>
-        <Link className='button'>
+        <Link className="button">
           <FacebookShareButton url={url}>
             <FacebookIcon size={32} />
           </FacebookShareButton>
         </Link>
-        <Link className='button'>
+        <Link className="button">
           <TumblrShareButton url={url} title={title} caption={description}>
             <TumblrIcon size={32} />
           </TumblrShareButton>
         </Link>
-        <Link className='button'>
+        <Link className="button">
           <LineShareButton url={url} title={title}>
             <LineIcon size={32} />
-          </LineShareButton >
+          </LineShareButton>
         </Link>
-        <Link className='button'>
+        <Link className="button">
           <EmailShareButton url={url} subject={title}>
             <EmailIcon size={32} />
           </EmailShareButton>
         </Link>
       </div>
-      <div className='column'></div>
-  </div>
+      <div className="column"></div>
+    </div>
   );
 };
 
@@ -130,25 +146,38 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout menu='blog'>
+    <Layout menu="blog">
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         heroimage={post.frontmatter.image.childImageSharp.fluid}
         helmet={
-          <Helmet
-            titleTemplate='%s | pitoruの多趣味日記'
-          >
+          <Helmet titleTemplate="%s | pitoruの多趣味日記">
             <title>{post.frontmatter.title}</title>
-            <meta name='description' content={post.frontmatter.description} />
-            <meta property='og:title' content={post.frontmatter.title}/>
-            <meta property='og:description' content={post.frontmatter.description} />
-            <meta property='og:type' content='artcle' />
-            <meta property='og:image' content={'https://pito.run'+ post.frontmatter.image.childImageSharp.fixed.src} />
-            <meta name='twitter:card' content='summary' />
-            <meta name='twitter:site' content='@mecaota' />
-            <meta name='twitter:image' content={'https://pito.run'+ post.frontmatter.image.childImageSharp.fixed.src} />
+            <meta name="description" content={post.frontmatter.description} />
+            <meta property="og:title" content={post.frontmatter.title} />
+            <meta
+              property="og:description"
+              content={post.frontmatter.description}
+            />
+            <meta property="og:type" content="artcle" />
+            <meta
+              property="og:image"
+              content={
+                'https://pito.run' +
+                post.frontmatter.image.childImageSharp.fixed.src
+              }
+            />
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@mecaota" />
+            <meta
+              name="twitter:image"
+              content={
+                'https://pito.run' +
+                post.frontmatter.image.childImageSharp.fixed.src
+              }
+            />
           </Helmet>
         }
         tags={post.frontmatter.tags}

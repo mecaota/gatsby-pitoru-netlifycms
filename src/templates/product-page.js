@@ -18,14 +18,14 @@ export const ProductPageTemplate = ({
   fullImage,
   pricing,
 }) => (
-  <section className='section section--gradient'>
-    <div className='container'>
-      <div className='section'>
-        <div className='columns'>
-          <div className='column is-10 is-offset-1'>
-            <div className='content'>
+  <section className="section section--gradient">
+    <div className="container">
+      <div className="section">
+        <div className="columns">
+          <div className="column is-10 is-offset-1">
+            <div className="content">
               <div
-                className='full-width-image-container margin-top-0'
+                className="full-width-image-container margin-top-0"
                 style={{
                   backgroundImage: `url(${
                     !!image.childImageSharp
@@ -35,7 +35,7 @@ export const ProductPageTemplate = ({
                 }}
               >
                 <h2
-                  className='has-text-weight-bold is-size-1'
+                  className="has-text-weight-bold is-size-1"
                   style={{
                     boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
                     backgroundColor: '#f40',
@@ -46,39 +46,39 @@ export const ProductPageTemplate = ({
                   {title}
                 </h2>
               </div>
-              <div className='columns'>
-                <div className='column is-7'>
-                  <h3 className='has-text-weight-semibold is-size-2'>
+              <div className="columns">
+                <div className="column is-7">
+                  <h3 className="has-text-weight-semibold is-size-2">
                     {heading}
                   </h3>
                   <p>{description}</p>
                 </div>
               </div>
               <Features gridItems={intro.blurbs} />
-              <div className='columns'>
-                <div className='column is-7'>
-                  <h3 className='has-text-weight-semibold is-size-3'>
+              <div className="columns">
+                <div className="column is-7">
+                  <h3 className="has-text-weight-semibold is-size-3">
                     {main.heading}
                   </h3>
                   <p>{main.description}</p>
                 </div>
               </div>
-              <div className='tile is-ancestor'>
-                <div className='tile is-vertical'>
-                  <div className='tile'>
-                    <div className='tile is-parent is-vertical'>
-                      <article className='tile is-child'>
+              <div className="tile is-ancestor">
+                <div className="tile is-vertical">
+                  <div className="tile">
+                    <div className="tile is-parent is-vertical">
+                      <article className="tile is-child">
                         <PreviewCompatibleImage imageInfo={main.image1} />
                       </article>
                     </div>
-                    <div className='tile is-parent'>
-                      <article className='tile is-child'>
+                    <div className="tile is-parent">
+                      <article className="tile is-child">
                         <PreviewCompatibleImage imageInfo={main.image2} />
                       </article>
                     </div>
                   </div>
-                  <div className='tile is-parent'>
-                    <article className='tile is-child'>
+                  <div className="tile is-parent">
+                    <article className="tile is-child">
                       <PreviewCompatibleImage imageInfo={main.image3} />
                     </article>
                   </div>
@@ -86,7 +86,7 @@ export const ProductPageTemplate = ({
               </div>
               <Testimonials testimonials={testimonials} />
               <div
-                className='full-width-image-container'
+                className="full-width-image-container"
                 style={{
                   backgroundImage: `url(${
                     fullImage.childImageSharp
@@ -95,10 +95,10 @@ export const ProductPageTemplate = ({
                   })`,
                 }}
               />
-              <h2 className='has-text-weight-semibold is-size-2'>
+              <h2 className="has-text-weight-semibold is-size-2">
                 {pricing.heading}
               </h2>
-              <p className='is-size-5'>{pricing.description}</p>
+              <p className="is-size-5">{pricing.description}</p>
               <Pricing data={pricing.plans} />
             </div>
           </div>
@@ -136,7 +136,7 @@ const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout menu='products'>
+    <Layout menu="products">
       <ProductPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
